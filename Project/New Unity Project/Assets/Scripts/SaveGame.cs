@@ -6,28 +6,27 @@ using UnityEngine.Events;
 [SerializeField]
 public class SaveGame : MonoBehaviour
 {
+    [SerializeField] public int a = 1;
+
     public GameObject playerposition;
     public GameObject Atributte;
-    public UnityEvent pegarDados;
-    float localX, localY, localZ;
-    public string[] oqueDesejaFazer;
-    private string save;
-    public int a = 1;
-
-    void LocateAtribute(string[] theAtribute)
+    public UnityEvent pegarD
+    void LocateAtribute(string theAtribute)
     {
-        for(int i = 0; i < 0; i++)
+        for (int i = 1; i > 0; i++)
         {
-            if (theAtribute[i] == "transfom")
+
+            if (theAtribute == "transfom")
             {
                 localX = Atributte.transform.position.x;
                 localY = Atributte.transform.position.y;
                 localZ = Atributte.transform.position.z;
             }
-            else if (theAtribute[2] == "valorInteiro")
+            else if (theAtribute == "valorInteiro")
             {
-
+                a = 10;
             }
+            Debug.Log("repete");
         }
     }
 
@@ -39,6 +38,7 @@ public class SaveGame : MonoBehaviour
     }
     public void Update()
     {
+        LocateAtribute(oqueDesejaFazer);
         if (Input.GetKey(KeyCode.S))
             Save();
         if (Input.GetKey(KeyCode.L))
